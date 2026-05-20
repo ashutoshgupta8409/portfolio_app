@@ -71,47 +71,64 @@
 </section>
 
 <section id="experience" class="experience-section">
-  <div class="container">
+  <div class="experience-container">
     <h2 class="section-heading">Experience</h2>
     <div class="experience-grid">
-      <div class="experience-item">
-        <h3>Software Engineer — Bluebash Consulting Private Limited</h3>
-        <div class="experience-meta">Jan 2023 — Present</div>
-        <ul>
-          <li>Built and maintained Rails features, integrations, and UI improvements.</li>
-          <li>Collaborated with cross-functional teams to deliver secure, scalable systems.</li>
-          <li>Worked with Redis, Sidekiq, and third-party integrations (payments, PubNub, etc.).</li>
-        </ul>
-      </div>
-      <div class="experience-item">
-        <h3>Full-Stack Developer Intern — Bluebash Consulting</h3>
-        <div class="experience-meta">Jun 2022 — Dec 2022</div>
-        <ul>
-          <li>Built a gallery app with Rails (CRUD, Devise, Mailtrap), responsive UI with Bootstrap.</li>
-          <li>Developed a dynamic bike purchasing web app with HTML/CSS/Bootstrap/JS.</li>
-          <li>Learned best practices for authentication, authorization, and secure web apps.</li>
-        </ul>
+      <div class="experience-row">
+        <div class="experience-item">
+          <h3>Software Engineer — Bluebash Consulting Private Limited</h3>
+          <div class="experience-meta">Jan 2023 — Present</div>
+          <ul>
+            <li>Built and maintained Rails features, integrations, and UI improvements.</li>
+            <li>Collaborated with cross-functional teams to deliver secure, scalable systems.</li>
+            <li>Worked with Redis, Sidekiq, and third-party integrations (payments, PubNub, etc.).</li>
+          </ul>
+        </div>
+        <div class="experience-item">
+          <h3>Full-Stack Developer Intern — Bluebash Consulting</h3>
+          <div class="experience-meta">Jun 2022 — Dec 2022</div>
+          <ul>
+            <li>Built a gallery app with Rails (CRUD, Devise, Mailtrap), responsive UI with Bootstrap.</li>
+            <li>Developed a dynamic bike purchasing web app with HTML/CSS/Bootstrap/JS.</li>
+            <li>Learned best practices for authentication, authorization, and secure web apps.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <section id="projects" class="projects-section">
-  <div class="container">
+  <div class="projects-container">
     <h2 class="section-heading">Projects</h2>
     <div class="projects-grid">
-      <% @projects.each do |p| %>
-        <div class="project">
-          <h3><%= link_to p.title, project_path(p), class: "project-title" %></h3>
-          <p><%= p.description %></p>
-          <div class="tech">
-            <% p.tech_list.each do |t| %>
-              <span class="badge"><%= t %></span>
-            <% end %>
+      <div class="projects-row">
+        <% @projects.each do |p| %>
+          <div class="project">
+            <h3><%= link_to p.title, project_path(p), class: "project-title" %></h3>
+            <p><%= p.description %></p>
+            <div class="tech">
+              <% p.tech_list.each do |t| %>
+                <span class="badge"><%= t %></span>
+              <% end %>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
+  </div>
+</section>
+
+<section id="" class="section contact scroll-reveal">
+  <div class="container">
+    <h2>Contact</h2>
+    <p>Email: <a class="muted" href="mailto:ashutoshgupta8409@gmail.com">ashutoshgupta8409@gmail.com</a></p>
+    <div class="socials scroll-reveal-stagger revealed">
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-4067361b6" target="_blank">LinkedIn</a>
+      <a href="https://wa.me/+919113397893" target="_blank">WhatsApp</a>
+      <a href="tel:+919113397893">Call</a>
+    </div>
+    <div class="footer-note">© Ashutosh Kumar</div>
   </div>
 </section>
  
