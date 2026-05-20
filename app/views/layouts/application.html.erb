@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Portfolio App" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Portfolio App">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <div class="brand"><span class="dot"></span> Ashutosh Kumar</div>
+        <% if controller_name == 'pages' && action_name == 'show' && defined?(@project) && @project.present? %>
+          <nav class="desktop-nav project-nav">
+          <%= link_to "← Home", pages_home_path, class: "nav-back" %>  
+          <%= link_to "← All Projects", root_path(anchor: "projects"), class: "nav-back" %>
+            <span class="project-header-title"><%= @project.title %></span>
+            <%= link_to "Contact", contact_path, class: "nav-contact" %>
+          </nav>
+        <% else %>
+          <nav class="desktop-nav">
+            <%= link_to "About", root_path(anchor: "about") %>
+            <%= link_to "Skills", root_path(anchor: "skills") %>
+            <%= link_to "Experience", root_path(anchor: "experience") %>
+            <%= link_to "Projects", root_path(anchor: "projects") %>
+            <%= link_to "Contact", contact_path %>
+          </nav>
+        <% end %>
+      </div>
+    </header>
+
+    <% if notice.present? %>
+      <div class="app-notice"><%= notice %></div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

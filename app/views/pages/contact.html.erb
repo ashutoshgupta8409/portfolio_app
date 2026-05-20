@@ -1,0 +1,39 @@
+<section class="section contact-page">
+  <div class="container contact-container">
+    <h2 class="section-heading">Contact</h2>
+    <p class="contact-intro">Have a project or want to work together? Send a message and I’ll get back to you soon.</p>
+
+    <div class="contact-panel">
+      <% if @client_request.errors.any? %>
+        <div class="form-errors">
+          <p><strong>Please fix the following:</strong></p>
+          <ul>
+            <% @client_request.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_with model: @client_request, url: client_requests_path, local: true do |f| %>
+        <div class="form-row">
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :message %>
+          <%= f.text_area :message, class: "form-control", rows: 6 %>
+        </div>
+        <div class="form-actions">
+          <%= f.submit "Send Message", class: "custom-hero-btn custom-hero-btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

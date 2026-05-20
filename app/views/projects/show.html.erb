@@ -1,0 +1,44 @@
+<section class="project-detail">
+  <div class="container project-detail-container">
+    <div class="project-detail-header">
+      <h1><%= @project.title %></h1>
+      <p><%= @project.description %></p>
+      <div class="project-detail-actions">
+        <% if @project.link.present? %>
+          <a href="<%= @project.link %>" target="_blank" rel="noopener" class="custom-hero-btn custom-hero-btn-primary">View Live Demo</a>
+        <% end %>
+        <%= link_to "Back to Projects", root_path(anchor: "projects"), class: "custom-hero-btn custom-hero-btn-ghost" %>
+      </div>
+    </div>
+
+    <div class="project-detail-grid">
+      <div class="project-card">
+        <h2>Project Timeline</h2>
+        <p class="project-card-title"><%= @project.respond_to?(:project_timeline) ? @project.project_timeline : "Production Ready" %></p>
+        <p>Enterprise deployment lifecycle requiring architecture scaling and maintenance.</p>
+      </div>
+      <div class="project-card">
+        <h2>My Core Focus</h2>
+        <p class="project-card-title"><%= @project.respond_to?(:role_duration) ? @project.role_duration : "Full-Stack System Owner" %></p>
+        <p>Led software refactoring, feature enhancements, and critical system optimizations.</p>
+      </div>
+      <div class="project-card project-tech-card">
+        <h2>Tech Stack</h2>
+        <div class="tech-list">
+          <% @project.tech_list.each do |technology| %>
+            <span class="badge"><%= technology %></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-detail-body">
+      <% if @project.respond_to?(:project_timeline) || @project.respond_to?(:role_duration) %>
+        <div class="project-detail-section">
+          <h3>Project Overview</h3>
+          <p><%= @project.description %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
