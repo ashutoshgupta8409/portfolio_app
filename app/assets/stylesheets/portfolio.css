@@ -380,13 +380,13 @@ body {
 
 /* Custom Hero */
 .custom-hero {
-  padding: 100px 0;
+  padding: 50px 0;
   width: 100%;
   background: radial-gradient(1200px 800px at 10% -20%, #1a2230 0%, #0e1116 50%) fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 70vh;
 }
 
 .custom-hero-container {
